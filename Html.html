@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("hello wỏld")
+    </script>
+    <div id="text"></div>
+    <script>
+        document.getElementById('text').innerHTML="Hê Lô Guốc"
+    </script>
+    <script>
+        console.log('ok');
+    </script>
+    <script>
+        alert('hello wỏld');
+    </script>
+    <script>
+        function chanle(x){
+            if(x%2==0)
+            return document.write(x, " la so chan");
+        }
+
+        chanle(4);
+    </script>
+    
+    <h1>Find Largest and Smallest Numbers in a Sequence</h1>
+    
+    <p>Enter a sequence of numbers separated by commas:</p>
+    <input type="text" id="numbers" placeholder="E.g., 10, 20, 5, 30">
+    <button onclick="findLargestSmallest()">Find Largest & Smallest</button>
+    
+    <p id="result"></p>
+
+    <script>
+        function findLargestSmallest() {
+            // Get the input value from the user
+            var input = document.getElementById("numbers").value;
+            
+            // Convert the input string into an array of numbers
+            var arr = input.split(',').map(Number);
+            
+            // Initialize variables for largest and smallest numbers
+            var largest = arr[0];
+            var smallest = arr[0];
+            
+            // Loop through the array to find the largest and smallest numbers
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] > largest) {
+                    largest = arr[i];
+                }
+                if (arr[i] < smallest) {
+                    smallest = arr[i];
+                }
+            }
+            
+            // Display the result on the HTML page
+            document.getElementById("result").innerHTML = 
+                "The largest number is: " + largest + "<br>The smallest number is: " + smallest;
+        }
+    </script>  
+    <div>
+        <h1>Guess the Number (1 to 10)</h1>
+
+        <p>Enter a number between 1 and 10:</p>
+        <input type="text" id="guess">
+        <button onclick="guessNumber()">Submit</button>
+    
+        <p id="result"></p>
+    
+    </div>
+    <script>
+        // Generate a random number between 1 and 10
+        var randomNumber = Math.floor(Math.random() * 10) + 1;
+
+        function guessNumber() {
+            // Get the user's guess
+            var userGuess = Number(document.getElementById("guess").value);
+
+            // Validate the input
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
+                document.getElementById("result").innerHTML = "Please enter a valid number between 1 and 10.";
+            } else if (userGuess === randomNumber) {
+                document.getElementById("result").innerHTML = "Congratulations! You guessed correctly.";
+            } else {
+                document.getElementById("result").innerHTML = "Wrong guess. Try again.";
+            }
+        }
+    </script>
+</body>
+</html>
